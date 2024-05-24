@@ -1,2 +1,2 @@
-# mtags_snakemake
+# mTags workflow with Snakemake
 Snakemake workflow for mTags extraction and classification
