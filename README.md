@@ -2,6 +2,8 @@
 
 Snakemake workflow for mTags (meta-omics tags) extraction and classification. This is an improved implementation of the scripts avaiable in [this repository](https://github.com/aleixop/Malaspina_Euk_mTags).
 
+The main goal of this pipeline is to accurately assign taxonomy to meta-omics datasets by extracting fragments (tags) belonging to the 18S-V4 region and classifying them with [eukaryotesV4 database](https://github.com/aleixop/eukaryotesV4).
+
 ## How to run this workflow
 
 ### Step 1: clone this repository
