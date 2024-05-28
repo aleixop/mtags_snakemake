@@ -4,7 +4,7 @@ The main goal of this pipeline is to accurately assign taxonomy to meta-omics da
 
 This is an improved implementation of the scripts avaiable in [this repository](https://github.com/aleixop/Malaspina_Euk_mTags). Here's an schematic view of the pipeline:
 
-![alt text](pipeline.png))
+![alt text](pipeline.png)
 
 ## How to run this workflow
 
