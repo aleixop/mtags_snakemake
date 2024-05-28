@@ -1,7 +1,6 @@
 # mTags workflow with Snakemake
 
-Snakemake workflow for mTags (meta-omics tags) extraction and classification.
-This is an improved implementation of the scripts avaiable in [this repository](https://github.com/aleixop/Malaspina_Euk_mTags).
+Snakemake workflow for mTags (meta-omics tags) extraction and classification. This is an improved implementation of the scripts avaiable in [this repository](https://github.com/aleixop/Malaspina_Euk_mTags).
 
 ## How to run this workflow
 
