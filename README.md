@@ -2,9 +2,9 @@
 
 Snakemake workflow for mTags (meta-omics tags) extraction and classification. This is an improved implementation of the scripts avaiable in [this repository](https://github.com/aleixop/Malaspina_Euk_mTags).
 
-## How to run this workflow
+## How to run this workflow
 
-### Step 1: clone this repository
+### Step 1: clone this repository
 
 Run this command:
 
@@ -12,7 +12,7 @@ Run this command:
 git clone https://github.com/aleixop/mtags_snakemake.git
 ```
 
-### Step 2: create an environment with the required software
+### Step 2: create an environment with the required software
 
 First of all, if you don't have mamba installed, follow the steps explained [here](https://snakemake.readthedocs.io/en/stable/tutorial/setup.html#step-1-installing-mambaforge) to do so. 
 
@@ -35,7 +35,7 @@ And install all required software into an isolated Conda environment with the na
 mamba env create --name mtags_snakemake --file environment.yaml
 ```
 
-### Step 3: prepare your input files
+### Step 3: prepare your input files
 
 In case you want to test the pipeline, this repository contains files for testing in `data/input/`. You can remove them before processing your own samples.
 
@@ -58,7 +58,7 @@ sample3
 ...
 ```
 
-### Step 4: run the pipeline
+### Step 4: run the pipeline
 
 Activate the environment you created in [Step 2](###-step-2:-create-an-environment-with-the-required-software):
 
