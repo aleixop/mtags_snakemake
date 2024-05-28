@@ -1,8 +1,10 @@
 # mTags workflow with Snakemake
 
-Snakemake workflow for mTags (meta-omics tags) extraction and classification. This is an improved implementation of the scripts avaiable in [this repository](https://github.com/aleixop/Malaspina_Euk_mTags).
+The main goal of this pipeline is to accurately assign taxonomy to meta-omics datasets by extracting fragments (tags) belonging to the 18S-V4 region and classifying them with [eukaryotesV4](https://github.com/aleixop/eukaryotesV4) database.
 
-The main goal of this pipeline is to accurately assign taxonomy to meta-omics datasets by extracting fragments (tags) belonging to the 18S-V4 region and classifying them with [eukaryotesV4 database](https://github.com/aleixop/eukaryotesV4).
+This is an improved implementation of the scripts avaiable in [this repository](https://github.com/aleixop/Malaspina_Euk_mTags). Here's an schematic view of the pipeline:
+
+![alt text](pipeline.png))
 
 ## How to run this workflow
 
@@ -41,7 +43,7 @@ mamba env create --name mtags_snakemake --file environment.yaml
 
 In case you want to test the pipeline, this repository contains files for testing in `data/input/`. You can remove them before processing your own samples.
 
-You have to do 2 things prior to running this pipeline. First, put your paired-end fastq files in directory `data/input/`. **These should be gzipped and follow this naming structure**:
+You have to do 2 things prior to running this pipeline. First, put your **quality-filtered** paired-end fastq files in directory `data/input/`. **These should be gzipped and follow this naming structure**:
 
 ```
 <sample1>_R1.fastq.gz
