@@ -1,5 +1,12 @@
+samples_file = 'samples.txt'
+
+SAMPLES = [line.strip() for line in open(samples_file)]
 EXTRACTION_DB = "data/db/eukaryotesV4_92clust"
 CLASSIFICATION_DB = "data/db/eukaryotesV4_v8.fasta"
+
+rule all:
+    input:
+        "results/otu_table/mtags_otu_table.tsv"
 
 rule format_input:
     input: 
@@ -86,14 +93,16 @@ rule make_consensus_taxonomy:
           "--output_file {output} "
           "{input.map}"
         
-# rule make_otu_table:
-#     input: 
-#         filtered_map = "results/vsearch/{sample}_filtered.uc"
-#         script = "scripts/make_otu_table.py"
-#     output:
-#         "results/otu_table/mtags_otu_table.tsv"
-
-#         ${MAKE_OTU_TABLE} \
-#   --sample_identifier 'barcodelabel=' \
-#   --output_file ${OUT_TABLE}/${OUT_NAME}_otuTable.txt \
-#   ${OUT_MAP}/${OUT_NAME}.uc
+rule make_otu_table:
+    input: 
+        filtered_maps = expand("results/vsearch/{sample}_filtered.uc", sample= SAMPLES),
+        script = "scripts/make_otu_table.py"
+    output:
+        map = "results/vsearch/all_samples.uc",
+        otu_table = "results/otu_table/mtags_otu_table.tsv"
+    shell:
+        "cat {input.filtered_maps} > {output.map}; "
+        "{input.script} "
+          "--sample_identifier 'sample=' "
+          "--output_file {output.otu_table} "
+          "{output.map}"
