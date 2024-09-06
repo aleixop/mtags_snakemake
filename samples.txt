@@ -1,2 +1,2 @@
-TST0
-TST2
+sample1
+sample2
