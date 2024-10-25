@@ -82,7 +82,7 @@ Load all the [required software](#manual-installation) or make sure that paths f
 snakemake --cores <threads>
 ```
 
-#### Using conda
+#### With conda installation
 
 Activate the environment you created in [Step 2](#conda-installation):
 
