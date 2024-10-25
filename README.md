@@ -24,11 +24,11 @@ Required software is pretty common in bioinformatic analyses, so your cluster ma
 
 The required software for this pipeline is the following:
 
-    - [`snakemake`](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html)
-    - [`BLAST`](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
-    - [`vsearch`](https://github.com/torognes/vsearch?tab=readme-ov-file#download-and-install)
-    - [`seqkit`](https://bioinf.shenwei.me/seqkit/download/)
-    - [`python`](https://www.python.org/downloads/)
+- [`snakemake`](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html)
+- [`BLAST`](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
+- [`vsearch`](https://github.com/torognes/vsearch?tab=readme-ov-file#download-and-install)
+- [`seqkit`](https://bioinf.shenwei.me/seqkit/download/)
+- [`python`](https://www.python.org/downloads/)
 
 #### Conda installation
 
