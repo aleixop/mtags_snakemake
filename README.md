@@ -16,7 +16,21 @@ Run this command:
 git clone https://github.com/aleixop/mtags_snakemake.git
 ```
 
-### Step 2: create an environment with the required software
+### Step 2: install required software
+
+Required software is pretty common in bioinformatic analyses, so your cluster may already have them all installed. If not, software can be installed either manually or through conda.
+
+#### Manual installation
+
+The required software for this pipeline is the following:
+
+    - [`snakemake`](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html)
+    - [`BLAST`](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
+    - [`vsearch`](https://github.com/torognes/vsearch?tab=readme-ov-file#download-and-install)
+    - [`seqkit`](https://bioinf.shenwei.me/seqkit/download/)
+    - [`python`](https://www.python.org/downloads/)
+
+#### Conda installation
 
 First of all, if you don't have mamba installed, follow the steps explained [here](https://snakemake.readthedocs.io/en/stable/tutorial/setup.html#step-1-installing-mambaforge) to do so. 
 
@@ -60,14 +74,24 @@ sample3
 
 ### Step 4: run the pipeline
 
-Activate the environment you created in [Step 2](###-step-2:-create-an-environment-with-the-required-software):
+#### With manual installation
+
+Load all the [required software](####-manual-installation) and run this code from the root of the project (where the `Snakefile` is located). You must write the number of threads you want to use:
+
+```
+snakemake --cores <threads>
+```
+
+#### Using conda
+
+Activate the environment you created in [Step 2](####-conda-installation):
 
 ```
 conda activate mtags_snakemake
 ```
 
-And run the code specifying the number of threads you want to use:
+And run this code from the root of the project (where the `Snakefile` is located). You must write the number of threads you want to use:
 
 ```
-snakemake --cores 24
+snakemake --cores <threads>
 ```
