@@ -27,15 +27,11 @@ conda activate base
 conda install -n base -c conda-forge mamba
 ```
 
-Then, activate the conda base environment with:
+Then, activate the conda base environment, enter the `mtags_snakemake` directory and install all required software into an isolated Conda environment with the name `mtags_snakemake` via:
 
 ```
 conda activate base
-```
-
-And install all required software into an isolated Conda environment with the name `mtags_snakemake` via:
-
-```
+cd mtags_snakemake
 mamba env create --name mtags_snakemake --file environment.yaml
 ```
 
