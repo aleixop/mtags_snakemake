@@ -13,7 +13,7 @@ rule format_input:
         R1="data/input/{sample}_R1.fastq.gz", 
         R2="data/input/{sample}_R2.fastq.gz"
     output:
-        "results/fasta/{sample}.fasta"
+        temp("results/fasta/{sample}.fasta")
     params:
         min_length = 75
     shell:
@@ -44,7 +44,7 @@ rule extract_blast_hits:
     input:
         "results/blast/{sample}.blast"
     output:
-        "results/blast/{sample}.hits"
+        temp("results/blast/{sample}.hits")
     shell:
         "cut -f1 {input} | sort -u > {output}"
 
