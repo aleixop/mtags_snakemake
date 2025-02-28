@@ -90,7 +90,7 @@ Activate the environment you created in [Step 2](#conda-installation):
 conda activate mtags_snakemake
 ```
 
-And run this code from the root of the project (where the `Snakefile` is located). You must write the number of threads you want to use:
+And run this code from the root of the project (where the `Snakefile` is located). You can write the number of threads you want to use with `--cores`:
 
 ```
 snakemake --cores <threads>
