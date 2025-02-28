@@ -76,7 +76,7 @@ sample3
 
 #### With manual installation
 
-Load all the [required software](#manual-installation) or make sure that paths for software are exported and run this code from the root of the project (where the `Snakefile` is located). You must write the number of threads you want to use:
+Load all the [required software](#manual-installation) or make sure that paths for software are exported and run this code from the root of the project (where the `Snakefile` is located). You can write the number of threads you want to use with `--cores`:
 
 ```
 snakemake --cores <threads>
