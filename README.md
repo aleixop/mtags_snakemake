@@ -32,7 +32,7 @@ The required software for this pipeline is the following:
 
 #### Conda installation
 
-First of all, if you don't have mamba installed, follow the steps explained [here](https://snakemake.readthedocs.io/en/stable/tutorial/setup.html#step-1-installing-mambaforge) to do so. 
+First of all, if you don't have mamba installed, follow the steps explained [here](https://snakemake.readthedocs.io/en/stable/tutorial/setup.html#step-1-installing-miniforge) to do so. 
 
 Alternatively, you can install mamba like this:
 
