@@ -29,6 +29,7 @@ The required software for this pipeline is the following:
 - [`vsearch`](https://github.com/torognes/vsearch?tab=readme-ov-file#download-and-install)
 - [`seqkit`](https://bioinf.shenwei.me/seqkit/download/)
 - [`python`](https://www.python.org/downloads/)
+- [`R`](https://cran.r-project.org/) and package [tidyverse](https://tidyverse.org/).
 
 #### Conda installation
 

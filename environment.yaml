@@ -6,3 +6,5 @@ dependencies:
   - seqkit
   - blast
   - vsearch
+  - r-base
+  - r-tidyverse
