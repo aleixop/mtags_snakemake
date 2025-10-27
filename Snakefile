@@ -127,13 +127,10 @@ rule make_consensus_taxonomy:
 rule make_otu_table:
     input: 
         filtered_maps = expand("results/vsearch/{sample}_filtered.uc", sample= SAMPLES),
-        script = "scripts/make_otu_table.py"
+        script = "scripts/make_otu_table.R"
     output:
-        map = "results/vsearch/all_samples.uc",
         otu_table = "results/otu_table/mtags_otu_table.tsv"
     shell:
-        "cat {input.filtered_maps} > {output.map}; "
         "{input.script} "
-          "--sample_identifier 'sample=' "
-          "--output_file {output.otu_table} "
-          "{output.map}"
+          "{output.otu_table} "
+          "{input.filtered_maps}"
