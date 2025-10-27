@@ -46,7 +46,16 @@ rule extract_blast_hits:
     output:
         temp("results/blast/{sample}.hits")
     shell:
-        "cut -f1 {input} | sort -u > {output}"
+        """
+        if [ ! -s {input} ]; then
+            # No hits found — create empty output
+            echo "\n# No hits found in sample {wildcards.sample}.\n"
+            touch {output}
+        else
+            # Hits found — proceed with normal command
+            cut -f1 {input} | sort -u > {output}
+        fi
+        """
 
 rule extract_mtags:
     input:
@@ -55,9 +64,17 @@ rule extract_mtags:
     output:
         "results/mtags/{sample}.mtags"
     shell:
-        "seqkit grep -f {input.hits} {input.fasta} | "
-        "seqkit replace -p $ -r ';sample={wildcards.sample}' "
-        "> {output}"
+        """
+        if [ ! -s {input.hits} ]; then
+            # Blast gave no hits — create empty output
+            touch {output}
+        else
+            # Hits found — proceed with normal command
+            seqkit grep -f {input.hits} {input.fasta} | \
+            seqkit replace -p $ -r ';sample={wildcards.sample}' \
+            > {output}
+        fi
+        """
 
 rule map_mtags:
     input:
@@ -67,17 +84,24 @@ rule map_mtags:
     params:
         database = CLASSIFICATION_DB
     shell:
-        "vsearch "
-          "--usearch_global {input} "
-          "--db {params.database} "
-          "--uc {output} "
-          "--id 0.97 "
-          "--mincols 70 "
-          "--strand both "
-          "--top_hits_only "
-          "--maxaccepts 0 "
-          "--maxrejects 0 "
-          "--threads {threads}"
+        """
+        if [ ! -s {input} ]; then
+            # No mtags — create empty output
+            touch {output}
+        else
+            vsearch \
+              --usearch_global {input} \
+              --db {params.database} \
+              --uc {output} \
+              --id 0.97 \
+              --mincols 70 \
+              --strand both \
+              --top_hits_only \
+              --maxaccepts 0 \
+              --maxrejects 0 \
+              --threads {threads}
+        fi
+        """
 
 rule make_consensus_taxonomy:
     input:
@@ -86,13 +110,20 @@ rule make_consensus_taxonomy:
     output:
         "results/vsearch/{sample}_filtered.uc"
     shell:
-        "{input.script} "
-          "--tax_separator '_' "
-          "--tax_sense 'asc' "
-          "--pair_separator '/' "
-          "--output_file {output} "
-          "{input.map}"
-        
+        """
+        if [ ! -s {input.map} ]; then
+            # No mappings — create empty output
+            touch {output}
+        else
+            {input.script} \
+              --tax_separator '_' \
+              --tax_sense 'asc' \
+              --pair_separator '/' \
+              --output_file {output} \
+              {input.map}
+        fi
+        """
+
 rule make_otu_table:
     input: 
         filtered_maps = expand("results/vsearch/{sample}_filtered.uc", sample= SAMPLES),
