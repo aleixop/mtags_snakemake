@@ -111,7 +111,8 @@ rule make_consensus_taxonomy:
         "results/vsearch/{sample}_filtered.uc"
     shell:
         """
-        if [ ! -s {input.map} ]; then
+        NHITS=$(grep -c '^H' {input.map})
+        if [ ${NHITS} == 0 ]; then
             # No mappings — create empty output
             touch {output}
         else
