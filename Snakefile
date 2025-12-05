@@ -111,17 +111,16 @@ rule make_consensus_taxonomy:
         "results/vsearch/{sample}_filtered.uc"
     shell:
         """
-        NHITS=$(grep -c '^H' {input.map})
-        if [ "$NHITS" -eq 0 ]; then
-            # No mappings — create empty output
-            touch {output}
-        else
+        if grep -q '^H' {input.map}
+        then
             {input.script} \
-              --tax_separator '_' \
-              --tax_sense 'asc' \
-              --pair_separator '/' \
-              --output_file {output} \
-              {input.map}
+                --tax_separator '_' \
+                --tax_sense 'asc' \
+                --pair_separator '/' \
+                --output_file {output} \
+                {input.map}
+        else
+            touch {output}
         fi
         """
 
