@@ -96,3 +96,7 @@ And run this code from the root of the project (where the `Snakefile` is located
 ```
 snakemake --cores <threads>
 ```
+
+#### Running the pipeline in SLURM
+
+If you are running the pipeline on an HPC with SLURM, you can find an example script tu run this pipeline [here]('scripts/mtags_snakemake.sh').
