@@ -99,4 +99,4 @@ snakemake --cores <threads>
 
 #### Running the pipeline in SLURM
 
-If you are running the pipeline on an HPC with SLURM, you can find an example script tu run this pipeline [here]('scripts/mtags_snakemake.sh').
+If you are running the pipeline on an HPC with SLURM, you can find an example script tu run this pipeline [here](scripts/mtags_snakemake.sh).
