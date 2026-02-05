@@ -54,7 +54,7 @@ mamba env create --name mtags_snakemake --file environment.yaml
 
 In case you want to test the pipeline, this repository contains files for testing in `data/input/`. You can remove them before processing your own samples.
 
-You have to do 2 things prior to running this pipeline. First, put your **quality-filtered** paired-end fastq files in directory `data/input/`. **These should be gzipped and follow this naming structure**:
+You have to do 2 things prior to running this pipeline. First, put your **quality-filtered and adapter-trimmed** paired-end fastq files in directory `data/input/`. **These should be gzipped and follow this naming structure**:
 
 ```
 <sample1>_R1.fastq.gz
